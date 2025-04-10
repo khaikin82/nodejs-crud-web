@@ -1,0 +1,16 @@
+<h1>User List</h1>
+<form method="POST" action="/add">
+  <input name="name" placeholder="Name" required />
+  <input name="email" placeholder="Email" required />
+  <button type="submit">Add</button>
+</form>
+
+<ul>
+  <% users.forEach(user => { %>
+  <li>
+    <%= user.name %> - <%= user.email %>
+    <a href="/edit/<%= user.id %>">Edit</a>
+    <a href="/delete/<%= user.id %>">Delete</a>
+  </li>
+  <% }) %>
+</ul>
