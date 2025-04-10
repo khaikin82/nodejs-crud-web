@@ -26,19 +26,21 @@ app.post("/add", (req, res) => {
 });
 
 app.get("/edit/:id", (req, res) => {
-  const { id } = req.params;
-  db.query("SELECT * FROM users WHERE id = ?", [id], (err, results) => {
-    if (err) throw err;
-    res.render("edit", { user: results[0] });
-  });
+  db.query(
+    "SELECT * FROM users WHERE id = ?",
+    [req.params.id],
+    (err, results) => {
+      if (err) throw err;
+      res.render("edit", { user: results[0] });
+    }
+  );
 });
 
 app.post("/edit/:id", (req, res) => {
-  const { id } = req.params;
   const { name, email } = req.body;
   db.query(
     "UPDATE users SET name = ?, email = ? WHERE id = ?",
-    [name, email, id],
+    [name, email, req.params.id],
     (err) => {
       if (err) throw err;
       res.redirect("/");

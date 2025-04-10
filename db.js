@@ -1,7 +1,7 @@
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
-  host: "<INTERNAL_OR_EXTERNAL_IP_OF_VM2>",
+  host: "10.128.0.9",
   user: "cruduser",
   password: "crudpass",
   database: "node_crud",
