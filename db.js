@@ -1,9 +1,9 @@
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
-  host: "127.0.0.1",
+  host: "khakin82server.mysql.database.azure.com",
   user: "cruduser",
-  password: "crudpass",
+  password: "crudpass2@",
   database: "node_crud",
 });
 
